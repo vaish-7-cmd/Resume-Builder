@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder 📄</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Resume Builder 📄</h1>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <main class="container">
+    <!-- Left Side: Form -->
+    <section class="form-section">
+      <h2>Enter Your Details</h2>
+      <form id="resume-form">
+        <label>Full Name <input type="text" id="name" placeholder="Your Name"></label>
+        <label>Email <input type="email" id="email" placeholder="you@example.com"></label>
+        <label>Phone <input type="text" id="phone" placeholder="+91 12345 67890"></label>
+        <label>LinkedIn <input type="text" id="linkedin" placeholder="https://linkedin.com/in/username"></label>
+        <label>GitHub <input type="text" id="github" placeholder="https://github.com/username"></label>
+        <label>About Me <textarea id="about" placeholder="Write a short summary..."></textarea></label>
+        <label>Education <textarea id="education" placeholder="Your education details..."></textarea></label>
+        <label>Skills <input type="text" id="skills" placeholder="e.g. Java, React, SQL..."></label>
+        <label>Projects <textarea id="projects" placeholder="Mention projects..."></textarea></label>
+        <label>Experience <textarea id="experience" placeholder="Work experience..."></textarea></label>
+        <button type="submit">🔄 Update Resume</button>
+      </form>
+      <button id="download-pdf">⬇ Download PDF</button>
+    </section>
+
+    <!-- Right Side: Resume Preview -->
+    <section class="preview-section">
+      <label for="template-select">Choose Template:</label>
+      <select id="template-select">
+        <option value="classic">Classic</option>
+        <option value="modern">Modern</option>
+        <option value="twocolumn">Two Column</option>
+      </select>
+
+      <!-- Classic Template -->
+      <section class="resume-preview template-classic active" data-template="classic">
+        <h2 class="preview-name">Your Name</h2>
+        <p class="preview-contact">you@example.com | +91 12345 67890 | linkedin.com/in/username | github.com/username</p>
+        <h3>About Me</h3>
+        <p class="preview-about">A short summary about yourself will appear here...</p>
+        <h3>Education</h3>
+        <p class="preview-education">Education details will appear here...</p>
+        <h3>Skills</h3>
+        <p class="preview-skills">Skills will appear here...</p>
+        <h3>Projects</h3>
+        <p class="preview-projects">Projects will appear here...</p>
+        <h3>Experience</h3>
+        <p class="preview-experience">Work experience will appear here...</p>
+      </section>
+
+      <!-- Modern Template -->
+      <section class="resume-preview template-modern" data-template="modern" style="display:none;">
+        <header class="modern-header">
+          <h1 class="preview-name">Your Name</h1>
+          <p class="preview-contact">you@example.com | +91 12345 67890 | linkedin.com/in/username | github.com/username</p>
+        </header>
+        <section>
+          <h2>Profile</h2>
+          <p class="preview-about">A short summary about yourself will appear here...</p>
+        </section>
+        <section>
+          <h2>Education</h2>
+          <p class="preview-education">Education details will appear here...</p>
+        </section>
+        <section>
+          <h2>Skills</h2>
+          <p class="preview-skills">Skills will appear here...</p>
+        </section>
+        <section>
+          <h2>Projects</h2>
+          <p class="preview-projects">Projects will appear here...</p>
+        </section>
+        <section>
+          <h2>Experience</h2>
+          <p class="preview-experience">Work experience will appear here...</p>
+        </section>
+      </section>
+
+      <!-- Two Column Template -->
+      <section class="resume-preview template-twocolumn" data-template="twocolumn" style="display:none;">
+        <div class="two-col-container">
+          <!-- Left Column -->
+          <div class="left-col">
+            <h2 class="preview-name">Your Name</h2>
+            <p class="contact-row">
+              <span class="preview-email">you@example.com</span><br>
+              <span class="preview-phone">+91 12345 67890</span><br>
+              <span class="preview-linkedin"><a href="#">linkedin.com/in/username</a></span><br>
+              <span class="preview-github"><a href="#">github.com/username</a></span>
+            </p>
+            <h3>Education</h3>
+            <p class="preview-education">Education details will appear here...</p>
+            <h3>Skills</h3>
+            <p class="preview-skills">Skills will appear here...</p>
+          </div>
+
+          <!-- Right Column -->
+          <div class="right-col">
+            <h3>Profile</h3>
+            <p class="preview-about">A short summary about yourself will appear here...</p>
+            <h3>Experience</h3>
+            <p class="preview-experience">Work experience will appear here...</p>
+            <h3>Projects</h3>
+            <p class="preview-projects">Projects will appear here...</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--header-bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+#theme-toggle {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+/* Form Section */
+.form-section {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form-section h2 {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Resume Preview */
+.resume-preview {
+  flex: 1.2;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.resume-preview h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.contact-row {
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.contact-row a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-row a:hover {
+  text-decoration: underline;
+}
+
+.resume-preview h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-strong);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.resume-preview p {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Light Theme */
+:root {
+  --bg: #f9f9f9;
+  --text: #333;
+  --text-strong: #111;
+  --header-bg: #fff;
+  --card-bg: #fff;
+  --accent: #6c63ff;
+}
+
+/* Dark Theme */
+body.dark {
+  --bg: #1e1e1e;
+  --text: #ddd;
+  --text-strong: #fff;
+  --header-bg: #2c2c2c;
+  --card-bg: #2c2c2c;
+  --accent: #bb86fc;
+}
+
+/* Mobile Responsive */
+@media(max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+/* Two Column Resume Template */
+.two-col-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.left-col {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.right-col {
+  padding: 15px;
+}
+
+.left-col h2 {
+  margin-top: 0;
+}
+
+.left-col .contact-row {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
