@@ -8,14 +8,41 @@ fields.forEach(field => {
     // Update only active template
     const activeTemplate = document.querySelector(".resume-preview.active");
     if (!activeTemplate) return;
-    const previewEl = activeTemplate.querySelector(".preview-" + field);
 
-    if (!previewEl) return;
-    if (field === "linkedin" || field === "github") {
-      previewEl.innerHTML = `<a href="${value}" target="_blank">${value}</a>`;
-    } else {
-      previewEl.textContent = value;
+    // ✅ Special case for contact fields
+    if (["email", "phone", "linkedin", "github"].includes(field)) {
+      const emailVal = document.getElementById("email").value || getDefault("email");
+      const phoneVal = document.getElementById("phone").value || getDefault("phone");
+      const linkedinVal = document.getElementById("linkedin").value || getDefault("linkedin");
+      const githubVal = document.getElementById("github").value || getDefault("github");
+
+      const contactEl = activeTemplate.querySelector(".preview-contact");
+      if (contactEl) {
+        contactEl.innerHTML = `
+          ${emailVal} | ${phoneVal} | 
+          <a href="${linkedinVal}" target="_blank">${linkedinVal}</a> | 
+          <a href="${githubVal}" target="_blank">${githubVal}</a>
+        `;
+      }
+
+      // For two-column template with individual spans
+      const emailEl = activeTemplate.querySelector(".preview-email");
+      const phoneEl = activeTemplate.querySelector(".preview-phone");
+      const linkedinEl = activeTemplate.querySelector(".preview-linkedin a");
+      const githubEl = activeTemplate.querySelector(".preview-github a");
+
+      if (emailEl) emailEl.textContent = emailVal;
+      if (phoneEl) phoneEl.textContent = phoneVal;
+      if (linkedinEl) { linkedinEl.href = linkedinVal; linkedinEl.textContent = linkedinVal; }
+      if (githubEl) { githubEl.href = githubVal; githubEl.textContent = githubVal; }
+
+      return; // ✅ Skip rest since we already handled contact
     }
+
+    // ✅ Default: update normal fields
+    const previewEl = activeTemplate.querySelector(".preview-" + field);
+    if (!previewEl) return;
+    previewEl.textContent = value;
   });
 });
 
